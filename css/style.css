@@ -1,3 +1,179 @@
+
+
+/*glitch code*/
+.glitchheader {
+  margin: 50px;
+  text-align: center;
+  mix-blend-mode: multiply;
+}
+.glitchh1 {
+  position: relative;
+  font-size: 3rem;
+  font-family: playfairdisplay;
+  color: transparent;
+  white-space: nowrap;
+  transform: skew(-10deg);
+  display: inline-block;
+}
+h1 .glitch1,
+h1 .glitch2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+h1::before,
+h1::after,
+h1 .glitch2::before,
+h1 .glitch2::after,
+h1 .glitch1::before,
+h1 .glitch1::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: magenta;
+  z-index: 1;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+h1 .glitch2::before {
+  color: cyan;
+  animation: trans4 3.2s infinite;
+  z-index: -1;
+  clip-path: inset(62% 0 0 0);
+}
+h1 .glitch2::after {
+  color: yellow;
+  animation: trans5 3.2s infinite;
+  z-index: -1;
+  clip-path: inset(62% 0 0 0);
+}
+h1::before {
+  clip-path: inset(0 0 43% 0);
+  animation: trans6 3.2s infinite;
+  color: black;
+}
+h1::after {
+  clip-path: inset(62% 0 0 0);
+}
+h1 .glitch1::before {
+  clip-path: inset(57% 0 42% 0);
+  animation: trans2 .8s steps(1, start) infinite;
+  animation-fill-mode: both;
+  animation-delay: 0.2s;
+  color: black;
+}
+h1 .glitch1::after {
+  clip-path: inset(58% 0 38% 0);
+  animation: trans1 .8s steps(1, start) infinite;
+  animation-fill-mode: both;
+  color: black;
+}
+
+@keyframes trans1 {
+  0% {
+    transform: translateX(-0.5%);
+  }
+  20% {
+    transform: translateX(0.25%);
+  }
+  40% {
+    transform: translateX(-0.1%);
+  }
+  60% {
+    transform: translateX(0.3%);
+  }
+  90% {
+    transform: translateX(0.4%);
+  }
+  100% {
+    transform: translateX(-0.5%);
+  }
+}
+@keyframes trans2 {
+  0% {
+    transform: translateX(2.5%);
+  }
+  20% {
+    transform: translateX(1.25%);
+  }
+  55% {
+    transform: translateX(0.9%);
+  }
+  60% {
+    transform: translateX(1.3%);
+  }
+  80% {
+    transform: translateX(1.4%);
+  }
+  100% {
+    transform: translateX(1.5%);
+  }
+}
+@keyframes trans3 {
+  0% {
+    transform: translateX(0.5%);
+  }
+  20% {
+    transform: translateX(0.55%);
+  }
+  45% {
+    transform: translateX(0.6%);
+  }
+  70% {
+    transform: translateX(0.7%);
+  }
+  90% {
+    transform: translateX(0.3%);
+  }
+  100% {
+    transform: translateX(0.6%);
+  }
+}
+@keyframes trans4 {
+  0% {
+    transform: translateX(0%);
+  }
+  60% {
+    transform: translateX(0.25%);
+  }
+  60.001% {
+    transform: translateX(0.15%);
+  }
+  100% {
+    transform: translateX(0.1%);
+  }
+}
+@keyframes trans5 {
+  0% {
+    transform: translateX(0%);
+  }
+  60% {
+    transform: translateX(-0.25%);
+  }
+  60.001% {
+    transform: translateX(-0.15%);
+  }
+  100% {
+    transform: translateX(-0.1%);
+  }
+}
+@keyframes trans6 {
+  0% {
+    transform: translateX(0.3%);
+  }
+  60% {
+    transform: translateX(0.55%);
+  }
+  60.001% {
+    transform: translateX(0.45%);
+  }
+  100% {
+    transform: translateX(0.6%);
+  }
+}
+/*end glitch code*/
+
 ::-webkit-scrollbar {
 display: none;
 }
@@ -137,6 +313,15 @@ display: none;
   }
 }
 
+@keyframes textfadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes fill {
   from {
     fill: transparent;
@@ -161,6 +346,24 @@ display: none;
   }
   to {
     -webkit-filter: brightness(20%);
+  }
+}
+
+@keyframes page7move {
+  from {
+    background-position: bottom;
+  }
+  to {
+    background-position: top;
+  }
+}
+
+@keyframes loaderfade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
 
@@ -202,45 +405,6 @@ display: none;
   font-weight: 100;
 }
 
-/* CODE FOR STILL IMAGE SLIDE
-#slide-1,
-#slide-2,
-#slide-3 {
-  position: relative;
-  overflow: hidden;
-}
-
-.cover-1,
-.cover-2,
-.cover-3 {
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  height: 100vh;
-}
-
-.cover-1 {
-  background-image: url("hero.jpg");
-  z-index: 3000;
-}
-
-.cover-2 {
-    background-image: url("../img/potFamine.jpg");
-}
-
-.cover-3 {
-  background-image: url('http://placekitten.com/800/355');
-}
-
-.cover-text {
-  position: absolute;
-  -webkit-transform: translate(-50%);
-  -moz-transform: translate(-50%);
-  -ms-transform: translate(-50%);
-  transform: translate(-50%);
-}
-END CODE FOR STILL IMAGE SLIDE*/
-
 .animate {
   animation: bgdarken 1.5s ease forwards 0s;
 }
@@ -248,7 +412,97 @@ END CODE FOR STILL IMAGE SLIDE*/
   animation: bgundarken 1.5s ease forwards 0s;
 }
 
+.page7Text {
+  opacity: 0;
+}
+
+.page8Text {
+  opacity: 0;
+}
+
 .page2 {
+}
+
+.page7Page {
+background: url("../img/dock.jpg");
+background-size: cover;
+width: 100%;
+height: 100vh;
+background-position: bottom;
+-webkit-filter: brightness(50%);
+}
+
+.page8Page {
+background: url("../img/factory.jpg");
+background-size: cover;
+width: 100%;
+height: 100vh;
+background-position: bottom;
+-webkit-filter: brightness(40%);
+}
+
+.page9Page {
+background: url("../img/clockbg.jpg");
+background-size: cover;
+width: 100%;
+height: 100vh;
+}
+
+.page10Page {
+background: url("../img/flag.jpg");
+background-size: cover;
+width: 100%;
+height: 100vh;
+-webkit-filter: brightness(30%);
+}
+
+.page11Page {
+background: url("../img/gun.jpg");
+background-size: cover;
+width: 100%;
+height: 100vh;
+-webkit-filter: brightness(30%);
+}
+
+.page12Page {
+background: url("../img/battle.jpg");
+background-size: cover;
+width: 100%;
+height: 100vh;
+-webkit-filter: brightness(30%);
+}
+
+.page13Page {
+background: url("../img/battle2.jpg");
+background-size: cover;
+width: 100%;
+height: 100vh;
+-webkit-filter: brightness(30%);
+}
+
+.page14Page {
+background: url("../img/musket.jpg");
+background-size: cover;
+width: 100%;
+height: 100vh;
+opacity: 0.7;
+}
+
+.page16Page {
+background: url("../img/fdr.jpg");
+background-size: cover;
+width: 45%;
+height: 100vh;
+margin-left: 55%;
+}
+
+.musket {
+  width: 50%;
+}
+
+.page7anim
+{
+animation: page7move 7.5s ease forwards 0s;
 }
 
 .page2Text {
@@ -259,15 +513,21 @@ END CODE FOR STILL IMAGE SLIDE*/
 .page4 {
   height: 100vh;
   width: 100%;
-  background: url("../img/immigrant-ship.jpg");
+  background: #fff;
   background-size: cover;
   background-position: bottom;
+}
+
+.page6 {
+  width: 100%;
+  height: 100vh;
+  background-color: white;
 }
 
 .page5Page {
   height: 100vh;
   width: 100%;
-  background: url("../img/dryland.jpg");
+  background: url("../img/ships.jpg");
   background-size: cover;
   background-position: bottom;
 }
